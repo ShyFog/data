@@ -91,6 +91,7 @@ registerBlock("shyfog:grass_block", {
 registerBlock("shyfog:bedrock");
 registerBlock("shyfog:sand");
 registerBlock("shyfog:sandstone");
+registerBlock("shyfog:red_sandstone");
 registerBlock("shyfog:obsidian");
 
 // Plants
