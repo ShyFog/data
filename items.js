@@ -24,23 +24,47 @@ const SIMPLE_HITBOX = [{
 var items = [];
 
 // Utilities for registering common types of blocks
+function simpleDrop(item, amount) {
+  return ({ world, ws, giveItem, sendPlayerData, broadcastPacket }) => {
+    giveItem(world.players[ws.username], item, amount);
+    broadcastPacket(client => sendPlayerData(client, ws.username));
+  };
+}
+
 function registerBlock(id, overrides) {
   items[id] = Object.assign({
     "texture": () => ({
       "file": `/block/${id.split(":")[1]}.png`
     }),
-    "hitboxes": SIMPLE_SOLID_HITBOX
+    "hitboxes": SIMPLE_SOLID_HITBOX,
+    "stackSize": 64,
+    "drop": simpleDrop(id, 1),
+    "placeable": true
   }, overrides || {});
   return items[id];
 }
 
-// Grass are blocks without a solid hitbox and have a special tint depending on the biome
+function registerItem(id, overrides) {
+  items[id] = Object.assign({
+    "texture": () => ({
+      "file": `/item/${id.split(":")[1]}.png`
+    }),
+    "hitboxes": [],
+    "stackSize": 64,
+    "drop": () => {},
+    "placeable": false
+  }, overrides || {});
+  return items[id];
+}
+
+// Grass are blocks without a solid hitbox, have a special tint depending on the biome, drop nothing
 function registerGrass(id, overrides) {
   return registerBlock(id, Object.assign({
     "texture": ({ biome }) => ({
       "file": grassTint(id, `/block/${id.split(":")[1]}.png`, biome)
     }),
-    "hitboxes": SIMPLE_HITBOX
+    "hitboxes": SIMPLE_HITBOX,
+    "drop": () => {}
   }, overrides || {}));
 }
 
@@ -73,22 +97,32 @@ function registerTree(id, overrides) {
   return [
     registerBlock(id + "_log", overrides),
     registerBlock(`${id.split(":")[0]}:stripped_${id.split(":")[1]}_log`, overrides),
-    registerLeaves(id + "_leaves", overrides),
+    registerLeaves(id + "_leaves", Object.assign({
+      "drop": () => {}
+    }, overrides)),
     registerBlock(id + "_planks", overrides)
   ];
 }
 
 // General terrain blocks
-registerBlock("shyfog:stone");
+registerBlock("shyfog:stone", {
+  "drop": simpleDrop("shyfog:cobblestone", 1)
+});
 registerBlock("shyfog:cobblestone");
-registerBlock("shyfog:deepslate");
+registerBlock("shyfog:deepslate", {
+  "drop": simpleDrop("shyfog:cobbled_deepslate", 1)
+});
+registerBlock("shyfog:cobbled_deepslate");
 registerBlock("shyfog:dirt");
 registerBlock("shyfog:grass_block", {
   "texture": () => ({
     "file": "/block/grass_block_side.png"
-  })
+  }),
+  "drop": simpleDrop("shyfog:dirt", 1)
 });
-registerBlock("shyfog:bedrock");
+registerBlock("shyfog:bedrock", {
+  "drop": () => {}
+});
 registerBlock("shyfog:sand");
 registerBlock("shyfog:sandstone");
 registerBlock("shyfog:red_sandstone");
@@ -129,14 +163,47 @@ registerTree("shyfog:cherry");
 registerTree("shyfog:pale_oak");
 
 // Ores
-registerOverworldOre("shyfog:coal_ore");
-registerOverworldOre("shyfog:copper_ore");
-registerOverworldOre("shyfog:iron_ore");
-registerOverworldOre("shyfog:lapis_ore");
-registerOverworldOre("shyfog:redstone_ore");
-registerOverworldOre("shyfog:gold_ore");
-registerOverworldOre("shyfog:diamond_ore");
-registerOverworldOre("shyfog:emerald_ore");
+registerOverworldOre("shyfog:coal_ore", {
+  "drop": simpleDrop("shyfog:coal", 1)
+});
+registerOverworldOre("shyfog:copper_ore", {
+  "drop": randomizedDrop("shyfog:raw_copper", 2, 5)
+});
+registerOverworldOre("shyfog:iron_ore", {
+  "drop": simpleDrop("shyfog:raw_iron", 1)
+});
+registerOverworldOre("shyfog:lapis_ore", {
+  "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9)
+});
+registerOverworldOre("shyfog:redstone_ore", {
+  "drop": randomizedDrop("shyfog:redstone", 4, 5)
+});
+registerOverworldOre("shyfog:gold_ore", {
+  "drop": simpleDrop("shyfog:raw_gold", 1)
+});
+registerOverworldOre("shyfog:diamond_ore", {
+  "drop": simpleDrop("shyfog:diamond", 1)
+});
+registerOverworldOre("shyfog:emerald_ore", {
+  "drop": simpleDrop("shyfog:emerald", 1)
+});
+
+// Materials
+registerItem("shyfog:coal");
+registerItem("shyfog:raw_copper");
+registerItem("shyfog:copper_ingot");
+registerItem("shyfog:raw_iron");
+registerItem("shyfog:iron_ingot");
+registerItem("shyfog:lapis_lazuli");
+registerItem("shyfog:redstone");
+registerItem("shyfog:raw_gold");
+registerItem("shyfog:gold_ingot");
+registerItem("shyfog:diamond");
+registerItem("shyfog:emerald");
+
+// Other
+registerItem("shyfog:charcoal");
+registerItem("shyfog:apple");
 
 if (typeof game !== "undefined") {
   game.items = items;
