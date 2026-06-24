@@ -52,7 +52,7 @@ function registerFlower(id, overrides) {
 }
 
 // Leaves are solid blocks with a special tint depending on the biome
-function registerLeaves(id, texture) {
+function registerLeaves(id, overrides) {
   return registerBlock(id, Object.assign({
     "texture": ({ biome }) => ({
       "file": leavesTint(id, `/block/${id.split(":")[1]}.png`, biome)
