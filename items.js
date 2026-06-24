@@ -1,7 +1,19 @@
 // This file defines every single item and block in the game
+// And their properties like hitbox, drops
 
-// Simple full-block hitbox
+
+// Simple full-block solid hitbox
+const SIMPLE_SOLID_HITBOX = [{
+  "type": "solid",
+  "x": 0,
+  "y": 0,
+  "width": 1,
+  "height": 1,
+  "rotation": 0
+}];
+// Simple full-block hitbox, but with no collision
 const SIMPLE_HITBOX = [{
+  "type": "none",
   "x": 0,
   "y": 0,
   "width": 1,
@@ -9,96 +21,125 @@ const SIMPLE_HITBOX = [{
   "rotation": 0
 }];
 
+var items = [];
+
 // Utilities for registering common types of blocks
-function registerSimpleSolidBlock(id, texture) {
-  game.items[id] = {
+function registerBlock(id, overrides) {
+  items[id] = Object.assign({
     "texture": () => ({
-      "file": texture
+      "file": `/block/${id.split(":")[1]}.png`
+    }),
+    "hitboxes": SIMPLE_SOLID_HITBOX
+  }, overrides || {});
+  return items[id];
+}
+
+// Grass are blocks without a solid hitbox and have a special tint depending on the biome
+function registerGrass(id, overrides) {
+  return registerBlock(id, Object.assign({
+    "texture": ({ biome }) => ({
+      "file": grassTint(id, `/block/${id.split(":")[1]}.png`, biome)
     }),
     "hitboxes": SIMPLE_HITBOX
-  };
+  }, overrides || {}));
 }
 
-function registerGrass(id, texture) {
-  game.items[id] = {
-    "texture": ({ biome }) => ({
-      "file": grassTint(id, texture, biome)
-    }),
-    "hitboxes": []
-  };
+// Flowers are just blocks without a solid hitbox
+function registerFlower(id, overrides) {
+  return registerBlock(id, Object.assign({
+    "hitboxes": SIMPLE_HITBOX
+  }, overrides || {}));
 }
 
-function registerFlower(id, texture) {
-  game.items[id] = {
-    "texture": () => ({
-      "file": texture
-    }),
-    "hitboxes": []
-  };
-}
-
+// Leaves are solid blocks with a special tint depending on the biome
 function registerLeaves(id, texture) {
-  game.items[id] = {
+  return registerBlock(id, Object.assign({
     "texture": ({ biome }) => ({
-      "file": leavesTint(id, texture, biome)
-    }),
-    "hitboxes": SIMPLE_HITBOX
-  };
+      "file": leavesTint(id, `/block/${id.split(":")[1]}.png`, biome)
+    })
+  }, overrides || {}));
 }
 
-game.items = {};
+// Registering overworld ore means registering both stone and deepslate variants at once
+function registerOverworldOre(id, overrides) {
+  return [
+    registerBlock(id, overrides),
+    registerBlock(`${id.split(":")[0]}:deepslate_${id.split(":")[1]}`, overrides)
+  ];
+}
+
+// Registering trees means registering log, stripped log, leaves, planks and other blocks made from a tree type
+function registerTree(id, overrides) {
+  return [
+    registerBlock(id + "_log", overrides),
+    registerBlock(`${id.split(":")[0]}:stripped_${id.split(":")[1]}_log`, overrides),
+    registerLeaves(id + "_leaves", overrides),
+    registerBlock(id + "_planks", overrides)
+  ];
+}
 
 // General terrain blocks
-registerSimpleSolidBlock("shyfog:stone", "/block/stone.png");
-registerSimpleSolidBlock("shyfog:cobblestone", "/block/cobblestone.png");
-registerSimpleSolidBlock("shyfog:deepslate", "/block/deepslate.png");
-registerSimpleSolidBlock("shyfog:dirt", "/block/dirt.png");
-registerSimpleSolidBlock("shyfog:grass_block", "/block/grass_block_side.png");
-registerSimpleSolidBlock("shyfog:bedrock", "/block/bedrock.png");
-registerSimpleSolidBlock("shyfog:sand", "/block/sand.png");
-registerSimpleSolidBlock("shyfog:sandstone", "/block/sandstone.png");
-registerSimpleSolidBlock("shyfog:obsidian", "/block/obsidian.png");
+registerBlock("shyfog:stone");
+registerBlock("shyfog:cobblestone");
+registerBlock("shyfog:deepslate");
+registerBlock("shyfog:dirt");
+registerBlock("shyfog:grass_block", {
+  "texture": () => ({
+    "file": "/block/grass_block_side.png"
+  })
+});
+registerBlock("shyfog:bedrock");
+registerBlock("shyfog:sand");
+registerBlock("shyfog:sandstone");
+registerBlock("shyfog:obsidian");
 
-// Grass
-registerGrass("shyfog:short_grass", "/block/short_grass.png");
-registerGrass("shyfog:tall_grass_top", "/block/tall_grass_top.png");
-registerGrass("shyfog:tall_grass_bottom", "/block/tall_grass_bottom.png");
+// Plants
+registerGrass("shyfog:short_grass");
+registerGrass("shyfog:tall_grass_top");
+registerGrass("shyfog:tall_grass_bottom");
+registerBlock("shyfog:cactus", {
+  "texture": () => ({
+    "file": "/block/cactus_side.png"
+  })
+});
 
 // Flowers
-registerFlower("shyfog:dandelion", "/block/dandelion.png");
-registerFlower("shyfog:poppy", "/block/poppy.png");
-registerFlower("shyfog:blue_orchid", "/block/blue_orchid.png");
-registerFlower("shyfog:allium", "/block/allium.png");
-registerFlower("shyfog:azure_bluet", "/block/azure_bluet.png");
-registerFlower("shyfog:white_tulip", "/block/white_tulip.png");
-registerFlower("shyfog:red_tulip", "/block/red_tulip.png");
-registerFlower("shyfog:pink_tulip", "/block/pink_tulip.png");
-registerFlower("shyfog:orange_tulip", "/block/orange_tulip.png");
-registerFlower("shyfog:oxeye_daisy", "/block/oxeye_daisy.png");
-registerFlower("shyfog:cornflower", "/block/cornflower.png");
+registerFlower("shyfog:dandelion");
+registerFlower("shyfog:poppy");
+registerFlower("shyfog:blue_orchid");
+registerFlower("shyfog:allium");
+registerFlower("shyfog:azure_bluet");
+registerFlower("shyfog:white_tulip");
+registerFlower("shyfog:red_tulip");
+registerFlower("shyfog:pink_tulip");
+registerFlower("shyfog:orange_tulip");
+registerFlower("shyfog:oxeye_daisy");
+registerFlower("shyfog:cornflower");
 
 // Trees
-registerSimpleSolidBlock("shyfog:oak_log", "/block/oak_log.png");
-registerLeaves("shyfog:oak_leaves", "/block/oak_leaves.png");
+registerTree("shyfog:oak");
+registerTree("shyfog:birch");
+registerTree("shyfog:spruce");
+registerTree("shyfog:dark_oak");
+registerTree("shyfog:acacia");
+registerTree("shyfog:jungle");
+registerTree("shyfog:mangrove");
+registerTree("shyfog:cherry");
+registerTree("shyfog:pale_oak");
 
 // Ores
-registerSimpleSolidBlock("shyfog:coal_ore", "/block/coal_ore.png");
-registerSimpleSolidBlock("shyfog:copper_ore", "/block/copper_ore.png");
-registerSimpleSolidBlock("shyfog:iron_ore", "/block/iron_ore.png");
-registerSimpleSolidBlock("shyfog:lapis_ore", "/block/lapis_ore.png");
-registerSimpleSolidBlock("shyfog:redstone_ore", "/block/redstone_ore.png");
-registerSimpleSolidBlock("shyfog:gold_ore", "/block/gold_ore.png");
-registerSimpleSolidBlock("shyfog:diamond_ore", "/block/diamond_ore.png");
-registerSimpleSolidBlock("shyfog:emerald_ore", "/block/emerald_ore.png");
+registerOverworldOre("shyfog:coal_ore");
+registerOverworldOre("shyfog:copper_ore");
+registerOverworldOre("shyfog:iron_ore");
+registerOverworldOre("shyfog:lapis_ore");
+registerOverworldOre("shyfog:redstone_ore");
+registerOverworldOre("shyfog:gold_ore");
+registerOverworldOre("shyfog:diamond_ore");
+registerOverworldOre("shyfog:emerald_ore");
 
-registerSimpleSolidBlock("shyfog:deepslate_coal_ore", "/block/deepslate_coal_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_copper_ore", "/block/deepslate_copper_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_iron_ore", "/block/deepslate_iron_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_lapis_ore", "/block/deepslate_lapis_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_redstone_ore", "/block/deepslate_redstone_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_gold_ore", "/block/deepslate_gold_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_diamond_ore", "/block/deepslate_diamond_ore.png");
-registerSimpleSolidBlock("shyfog:deepslate_emerald_ore", "/block/deepslate_emerald_ore.png");
-
-// Other
-registerSimpleSolidBlock("shyfog:cactus", "/block/cactus_side.png");
+if (typeof game !== "undefined") {
+  game.items = items;
+}
+if (typeof module !== "undefined") {
+  module.exports = items;
+}
