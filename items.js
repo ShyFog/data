@@ -23,7 +23,7 @@ const SIMPLE_HITBOX = [{
 
 var items = [];
 
-// Utilities for registering common types of blocks
+// Drop functions
 function simpleDrop(item, amount) {
   return ({ world, ws, giveItem, sendPlayerData, broadcastPacket }) => {
     giveItem(world.players[ws.username], item, amount);
@@ -31,6 +31,14 @@ function simpleDrop(item, amount) {
   };
 }
 
+function randomizedDrop(item, minAmount, maxAmount) {
+  return ({ world, ws, giveItem, sendPlayerData, broadcastPacket }) => {
+    giveItem(world.players[ws.username], item, minAmount + Math.floor(Math.random() *(maxAmount - minAmount + 1)));
+    broadcastPacket(client => sendPlayerData(client, ws.username));
+  };
+}
+
+// Utilities for registering common types of blocks
 function registerBlock(id, overrides) {
   items[id] = Object.assign({
     "texture": () => ({
