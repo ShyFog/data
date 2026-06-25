@@ -25,16 +25,20 @@ var items = [];
 
 // Drop functions
 function simpleDrop(item, amount) {
-  return ({ world, ws, giveItem, sendPlayerData, broadcastPacket }) => {
+  return ({ world, ws, giveItem, sendPacket, PacketType, broadcastPacket }) => {
     giveItem(world.players[ws.username], item, amount);
-    broadcastPacket(client => sendPlayerData(client, ws.username));
+    sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
+      "slots": world.players[ws.username].slots
+    });
   };
 }
 
 function randomizedDrop(item, minAmount, maxAmount) {
-  return ({ world, ws, giveItem, sendPlayerData, broadcastPacket }) => {
+  return ({ world, ws, giveItem, sendPacket, PacketType, broadcastPacket }) => {
     giveItem(world.players[ws.username], item, minAmount + Math.floor(Math.random() *(maxAmount - minAmount + 1)));
-    broadcastPacket(client => sendPlayerData(client, ws.username));
+    sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
+      "slots": world.players[ws.username].slots
+    });
   };
 }
 
