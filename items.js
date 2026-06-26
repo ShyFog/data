@@ -51,7 +51,8 @@ function registerBlock(id, overrides) {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "drop": simpleDrop(id, 1),
-    "placeable": true
+    "placeable": true,
+    "hardness": 0
   }, overrides || {});
   return items[id];
 }
@@ -64,7 +65,8 @@ function registerItem(id, overrides) {
     "hitboxes": [],
     "stackSize": 64,
     "drop": () => {},
-    "placeable": false
+    "placeable": false,
+    "hardness": 0
   }, overrides || {});
   return items[id];
 }
@@ -99,46 +101,75 @@ function registerLeaves(id, overrides) {
 // Registering overworld ore means registering both stone and deepslate variants at once
 function registerOverworldOre(id, overrides) {
   return [
-    registerBlock(id, overrides),
-    registerBlock(`${id.split(":")[0]}:deepslate_${id.split(":")[1]}`, overrides)
+    registerBlock(id, Object.assign({
+      "hardness": 3
+    }, overrides)),
+    registerBlock(`${id.split(":")[0]}:deepslate_${id.split(":")[1]}`, Object.assign({
+      "hardness": 4.5
+    }, overrides))
   ];
 }
 
 // Registering trees means registering log, stripped log, leaves, planks and other blocks made from a tree type
 function registerTree(id, overrides) {
   return [
-    registerBlock(id + "_log", overrides),
-    registerBlock(`${id.split(":")[0]}:stripped_${id.split(":")[1]}_log`, overrides),
-    registerLeaves(id + "_leaves", Object.assign({
-      "drop": () => {}
+    registerBlock(id + "_log", Object.assign({
+      "hardness": 2
     }, overrides)),
-    registerBlock(id + "_planks", overrides)
+    registerBlock(`${id.split(":")[0]}:stripped_${id.split(":")[1]}_log`, Object.assign({
+      "hardness": 2
+    }, overrides)),
+    registerLeaves(id + "_leaves", Object.assign({
+      "drop": () => {},
+      "hardness": 0.2
+    }, overrides)),
+    registerBlock(id + "_planks", Object.assign({
+      "hardness": 2
+    }, overrides))
   ];
 }
 
 // General terrain blocks
 registerBlock("shyfog:stone", {
-  "drop": simpleDrop("shyfog:cobblestone", 1)
+  "drop": simpleDrop("shyfog:cobblestone", 1),
+  "hardness": 1.5
 });
-registerBlock("shyfog:cobblestone");
+registerBlock("shyfog:cobblestone", {
+  "hardness": 2
+});
 registerBlock("shyfog:deepslate", {
-  "drop": simpleDrop("shyfog:cobbled_deepslate", 1)
+  "drop": simpleDrop("shyfog:cobbled_deepslate", 1),
+  "hardness": 3
 });
-registerBlock("shyfog:cobbled_deepslate");
-registerBlock("shyfog:dirt");
+registerBlock("shyfog:cobbled_deepslate", {
+  "hardness": 3.5
+});
+registerBlock("shyfog:dirt", {
+  "hardness": 0.5
+});
 registerBlock("shyfog:grass_block", {
   "texture": () => ({
     "file": "/block/grass_block_side.png"
   }),
-  "drop": simpleDrop("shyfog:dirt", 1)
+  "drop": simpleDrop("shyfog:dirt", 1),
+  "hardness": 0.6
 });
 registerBlock("shyfog:bedrock", {
-  "drop": () => {}
+  "drop": () => {},
+  "hardness": -1
 });
-registerBlock("shyfog:sand");
-registerBlock("shyfog:sandstone");
-registerBlock("shyfog:red_sandstone");
-registerBlock("shyfog:obsidian");
+registerBlock("shyfog:sand", {
+  "hardness": 0.5
+});
+registerBlock("shyfog:sandstone", {
+  "hardness": 0.8
+});
+registerBlock("shyfog:red_sandstone", {
+  "hardness": 0.8
+});
+registerBlock("shyfog:obsidian", {
+  "hardness": 50
+});
 
 // Plants
 registerGrass("shyfog:short_grass");
@@ -147,7 +178,8 @@ registerGrass("shyfog:tall_grass_bottom");
 registerBlock("shyfog:cactus", {
   "texture": () => ({
     "file": "/block/cactus_side.png"
-  })
+  }),
+  "hardness": 0.4
 });
 
 // Flowers
