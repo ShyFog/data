@@ -32,6 +32,93 @@ var guis = {
     "backgroundWidth": 176,
     "backgroundHeight": 166,
     "content": [
+      {
+        "type": "image",
+        "file": "/gui/sprites/container/slot/helmet.png",
+        "x": 8,
+        "y": 8,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "type": "player_slot",
+        "slot": "armor.head",
+        "x": 7,
+        "y": 7,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "image",
+        "file": "/gui/sprites/container/slot/chestplate.png",
+        "x": 8,
+        "y": 26,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "type": "player_slot",
+        "slot": "armor.chest",
+        "x": 7,
+        "y": 25,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "image",
+        "file": "/gui/sprites/container/slot/leggings.png",
+        "x": 8,
+        "y": 44,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "type": "player_slot",
+        "slot": "armor.legs",
+        "x": 7,
+        "y": 43,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "image",
+        "file": "/gui/sprites/container/slot/boots.png",
+        "x": 8,
+        "y": 62,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "type": "player_slot",
+        "slot": "armor.feet",
+        "x": 7,
+        "y": 61,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "current_player",
+        "x": 36,
+        "y": 14,
+        "width": 28,
+        "height": 59
+      },
+      {
+        "type": "image",
+        "file": "/gui/sprites/container/slot/shield.png",
+        "x": 77,
+        "y": 62,
+        "width": 16,
+        "height": 16
+      },
+      {
+        "type": "player_slot",
+        "slot": "weapon.offhand",
+        "x": 76,
+        "y": 61,
+        "width": 18,
+        "height": 18
+      },
       ...addInventory(7, 83)
     ]
   }
