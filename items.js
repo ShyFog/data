@@ -22,25 +22,37 @@ const SIMPLE_HITBOX = [{
   "rotation": 0
 }];
 
-// Simple texture
+// Simple full-block single texture
 function simpleTexture(texture) {
-  return () => ({
+  return [{
+    "x": 0,
+    "y": 0,
+    "width": 1,
+    "height": 1,
     "file": texture
-  });
+  }];
 }
 
 // Grass texture that changes color depending on the biome
-function grassTintedTexture(id, texture) {
-  return ({ biome }) => ({
+function grassTintedTexture(id, texture, biome) {
+  return [{
+    "x": 0,
+    "y": 0,
+    "width": 1,
+    "height": 1,
     "file": grassTint(id, texture, biome)
-  });
+  }];
 }
 
 // Leaves texture that changes color depending on the biome
-function leavesTintedTexture(id, texture) {
-  return ({ biome }) => ({
+function leavesTintedTexture(id, texture, biome) {
+  return [{
+    "x": 0,
+    "y": 0,
+    "width": 1,
+    "height": 1,
     "file": leavesTint(id, texture, biome)
-  });
+  }];
 }
 
 // No drop at all
@@ -66,751 +78,1029 @@ function randomizedDrop(item, minAmount, maxAmount) {
   };
 }
 
+// TODO: Different languages
+function translatedName(names) {
+  return names.en_US;
+}
+
 var items = {
   // General terrain blocks
-  "shyfog:stone": {
+  "shyfog:stone": () => ({
     "texture": simpleTexture("/block/stone.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 1.5,
-    "drop": simpleDrop("shyfog:cobblestone", 1)
-  },
-  "shyfog:cobblestone": {
+    "drop": simpleDrop("shyfog:cobblestone", 1),
+    "name": translatedName({
+      "en_US": "Stone"
+    })
+  }),
+  "shyfog:cobblestone": () => ({
     "texture": simpleTexture("/block/cobblestone.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:cobblestone", 1)
-  },
-  "shyfog:deepslate": {
+    "drop": simpleDrop("shyfog:cobblestone", 1),
+    "name": translatedName({
+      "en_US": "Cobblestone"
+    })
+  }),
+  "shyfog:deepslate": () => ({
     "texture": simpleTexture("/block/deepslate.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:cobbled_deepslate", 1)
-  },
-  "shyfog:cobbled_deepslate": {
+    "drop": simpleDrop("shyfog:cobbled_deepslate", 1),
+    "name": translatedName({
+      "en_US": "Deepslate"
+    })
+  }),
+  "shyfog:cobbled_deepslate": () => ({
     "texture": simpleTexture("/block/cobbled_deepslate.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3.5,
-    "drop": simpleDrop("shyfog:cobbled_deepslate", 1)
-  },
-  "shyfog:dirt": {
+    "drop": simpleDrop("shyfog:cobbled_deepslate", 1),
+    "name": translatedName({
+      "en_US": "Cobbled Deepslate"
+    })
+  }),
+  "shyfog:dirt": () => ({
     "texture": simpleTexture("/block/dirt.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.5,
-    "drop": simpleDrop("shyfog:dirt", 1)
-  },
-  "shyfog:grass_block": {
+    "drop": simpleDrop("shyfog:dirt", 1),
+    "name": translatedName({
+      "en_US": "Dirt"
+    })
+  }),
+  "shyfog:grass_block": () => ({
     "texture": simpleTexture("/block/grass_block_side.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.6,
-    "drop": simpleDrop("shyfog:dirt", 1)
-  },
-  "shyfog:bedrock": {
+    "drop": simpleDrop("shyfog:dirt", 1),
+    "name": translatedName({
+      "en_US": "Grass Block"
+    })
+  }),
+  "shyfog:bedrock": () => ({
     "texture": simpleTexture("/block/bedrock.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": -1,
-    "drop": NO_DROP
-  },
-  "shyfog:sand": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Bedrock"
+    })
+  }),
+  "shyfog:sand": () => ({
     "texture": simpleTexture("/block/sand.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.5,
-    "drop": simpleDrop("shyfog:sand", 1)
-  },
-  "shyfog:sandstone": {
+    "drop": simpleDrop("shyfog:sand", 1),
+    "name": translatedName({
+      "en_US": "Sand"
+    })
+  }),
+  "shyfog:sandstone": () => ({
     "texture": simpleTexture("/block/sandstone.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.8,
-    "drop": simpleDrop("shyfog:sandstone", 1)
-  },
-  "shyfog:red_sandstone": {
+    "drop": simpleDrop("shyfog:sandstone", 1),
+    "name": translatedName({
+      "en_US": "Sandstone"
+    })
+  }),
+  "shyfog:red_sandstone": () => ({
     "texture": simpleTexture("/block/red_sandstone.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.8,
-    "drop": simpleDrop("shyfog:red_sandstone", 1)
-  },
-  "shyfog:obsidian": {
+    "drop": simpleDrop("shyfog:red_sandstone", 1),
+    "name": translatedName({
+      "en_US": "Red Sandstone"
+    })
+  }),
+  "shyfog:obsidian": () => ({
     "texture": simpleTexture("/block/obsidian.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 50,
-    "drop": simpleDrop("shyfog:obsidian", 1)
-  },
+    "drop": simpleDrop("shyfog:obsidian", 1),
+    "name": translatedName({
+      "en_US": "Obsidian"
+    })
+  }),
   // Plants
-  "shyfog:short_grass": {
-    "texture": grassTintedTexture("shyfog:short_grass", "/block/short_grass.png"),
+  "shyfog:short_grass": ({ biome }) => ({
+    "texture": grassTintedTexture("shyfog:short_grass", "/block/short_grass.png", biome),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  // TODO: Two tall grass blocks should be combined into one!
-  "shyfog:tall_grass_top": {
-    "texture": grassTintedTexture("shyfog:tall_grass_top", "/block/tall_grass_top.png"),
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Short Grass"
+    })
+  }),
+  "shyfog:tall_grass": ({ biome }) => ({
+    "texture": [{
+      "x": 0,
+      "y": 1,
+      "width": 1,
+      "height": 1,
+      "file": grassTint("shyfog:tall_grass", "/block/tall_grass_top.png", biome)
+    }, {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1,
+      "file": grassTint("shyfog:tall_grass", "/block/tall_grass_bottom.png", biome)
+    }],
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:tall_grass_bottom": {
-    "texture": grassTintedTexture("shyfog:tall_grass_bottom", "/block/tall_grass_bottom.png"),
-    "hitboxes": SIMPLE_HITBOX,
-    "stackSize": 64,
-    "placeable": true,
-    "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:cactus": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Tall Grass"
+    })
+  }),
+  "shyfog:cactus": () => ({
     "texture": simpleTexture("/block/cactus_side.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.4,
-    "drop": simpleDrop("shyfog:cactus", 1)
-  },
+    "drop": simpleDrop("shyfog:cactus", 1),
+    "name": translatedName({
+      "en_US": "Cactus"
+    })
+  }),
   // Flowers
-  "shyfog:dandelion": {
+  "shyfog:dandelion": () => ({
     "texture": simpleTexture("/block/dandelion.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:dandelion", 1)
-  },
-  "shyfog:poppy": {
+    "drop": simpleDrop("shyfog:dandelion", 1),
+    "name": translatedName({
+      "en_US": "Dandelion"
+    })
+  }),
+  "shyfog:poppy": () => ({
     "texture": simpleTexture("/block/poppy.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:poppy", 1)
-  },
-  "shyfog:blue_orchid": {
+    "drop": simpleDrop("shyfog:poppy", 1),
+    "name": translatedName({
+      "en_US": "Poppy"
+    })
+  }),
+  "shyfog:blue_orchid": () => ({
     "texture": simpleTexture("/block/blue_orchid.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:blue_orchid", 1)
-  },
-  "shyfog:allium": {
+    "drop": simpleDrop("shyfog:blue_orchid", 1),
+    "name": translatedName({
+      "en_US": "Blue Orchid"
+    })
+  }),
+  "shyfog:allium": () => ({
     "texture": simpleTexture("/block/allium.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:allium", 1)
-  },
-  "shyfog:azure_bluet": {
+    "drop": simpleDrop("shyfog:allium", 1),
+    "name": translatedName({
+      "en_US": "Allium"
+    })
+  }),
+  "shyfog:azure_bluet": () => ({
     "texture": simpleTexture("/block/azure_bluet.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:azure_bluet", 1)
-  },
-  "shyfog:white_tulip": {
+    "drop": simpleDrop("shyfog:azure_bluet", 1),
+    "name": translatedName({
+      "en_US": "Azure Bluet"
+    })
+  }),
+  "shyfog:white_tulip": () => ({
     "texture": simpleTexture("/block/white_tulip.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:white_tulip", 1)
-  },
-  "shyfog:red_tulip": {
+    "drop": simpleDrop("shyfog:white_tulip", 1),
+    "name": translatedName({
+      "en_US": "White Tulip"
+    })
+  }),
+  "shyfog:red_tulip": () => ({
     "texture": simpleTexture("/block/red_tulip.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:red_tulip", 1)
-  },
-  "shyfog:pink_tulip": {
+    "drop": simpleDrop("shyfog:red_tulip", 1),
+    "name": translatedName({
+      "en_US": "Red Tulip"
+    })
+  }),
+  "shyfog:pink_tulip": () => ({
     "texture": simpleTexture("/block/pink_tulip.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:pink_tulip", 1)
-  },
-  "shyfog:orange_tulip": {
+    "drop": simpleDrop("shyfog:pink_tulip", 1),
+    "name": translatedName({
+      "en_US": "Pink Tulip"
+    })
+  }),
+  "shyfog:orange_tulip": () => ({
     "texture": simpleTexture("/block/orange_tulip.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:orange_tulip", 1)
-  },
-  "shyfog:oxeye_daisy": {
+    "drop": simpleDrop("shyfog:orange_tulip", 1),
+    "name": translatedName({
+      "en_US": "Orange Tulip"
+    })
+  }),
+  "shyfog:oxeye_daisy": () => ({
     "texture": simpleTexture("/block/oxeye_daisy.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:oxeye_daisy", 1)
-  },
-  "shyfog:cornflower": {
+    "drop": simpleDrop("shyfog:oxeye_daisy", 1),
+    "name": translatedName({
+      "en_US": "Oxeye Daisy"
+    })
+  }),
+  "shyfog:cornflower": () => ({
     "texture": simpleTexture("/block/cornflower.png"),
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0,
-    "drop": simpleDrop("shyfog:cornflower", 1)
-  },
+    "drop": simpleDrop("shyfog:cornflower", 1),
+    "name": translatedName({
+      "en_US": "Cornflower"
+    })
+  }),
   // Oak wood
-  "shyfog:oak_log": {
+  "shyfog:oak_log": () => ({
     "texture": simpleTexture("/block/oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:oak_log", 1)
-  },
-  "shyfog:stripped_oak_log": {
+    "drop": simpleDrop("shyfog:oak_log", 1),
+    "name": translatedName({
+      "en_US": "Oak Log"
+    })
+  }),
+  "shyfog:stripped_oak_log": () => ({
     "texture": simpleTexture("/block/stripped_oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_oak_log", 1)
-  },
-  "shyfog:oak_leaves": {
-    "texture": leavesTintedTexture("shyfog:oak_leaves", "/block/oak_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_oak_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Oak Log"
+    })
+  }),
+  "shyfog:oak_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:oak_leaves", "/block/oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:oak_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Oak Leaves"
+    })
+  }),
+  "shyfog:oak_planks": () => ({
     "texture": simpleTexture("/block/oak_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:oak_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:oak_planks", 1),
+    "name": translatedName({
+      "en_US": "Oak Planks"
+    })
+  }),
   // Birch wood
-  "shyfog:birch_log": {
+  "shyfog:birch_log": () => ({
     "texture": simpleTexture("/block/birch_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:birch_log", 1)
-  },
-  "shyfog:stripped_birch_log": {
+    "drop": simpleDrop("shyfog:birch_log", 1),
+    "name": translatedName({
+      "en_US": "Birch Log"
+    })
+  }),
+  "shyfog:stripped_birch_log": () => ({
     "texture": simpleTexture("/block/stripped_birch_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_birch_log", 1)
-  },
-  "shyfog:birch_leaves": {
-    "texture": leavesTintedTexture("shyfog:birch_leaves", "/block/birch_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_birch_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Birch Log"
+    })
+  }),
+  "shyfog:birch_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:birch_leaves", "/block/birch_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:birch_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Birch Leaves"
+    })
+  }),
+  "shyfog:birch_planks": () => ({
     "texture": simpleTexture("/block/birch_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:birch_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:birch_planks", 1),
+    "name": translatedName({
+      "en_US": "Birch Planks"
+    })
+  }),
   // Spruce wood
-  "shyfog:spruce_log": {
+  "shyfog:spruce_log": () => ({
     "texture": simpleTexture("/block/spruce_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:spruce_log", 1)
-  },
-  "shyfog:stripped_spruce_log": {
+    "drop": simpleDrop("shyfog:spruce_log", 1),
+    "name": translatedName({
+      "en_US": "Spruce Log"
+    })
+  }),
+  "shyfog:stripped_spruce_log": () => ({
     "texture": simpleTexture("/block/stripped_spruce_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_spruce_log", 1)
-  },
-  "shyfog:spruce_leaves": {
-    "texture": leavesTintedTexture("shyfog:spruce_leaves", "/block/spruce_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_spruce_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Spruce Log"
+    })
+  }),
+  "shyfog:spruce_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:spruce_leaves", "/block/spruce_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:spruce_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Spruce Leaves"
+    })
+  }),
+  "shyfog:spruce_planks": () => ({
     "texture": simpleTexture("/block/spruce_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:spruce_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:spruce_planks", 1),
+    "name": translatedName({
+      "en_US": "Spruce Planks"
+    })
+  }),
   // Dark oak wood
-  "shyfog:dark_oak_log": {
+  "shyfog:dark_oak_log": () => ({
     "texture": simpleTexture("/block/dark_oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:dark_oak_log", 1)
-  },
-  "shyfog:stripped_dark_oak_log": {
+    "drop": simpleDrop("shyfog:dark_oak_log", 1),
+    "name": translatedName({
+      "en_US": "Dark Oak Log"
+    })
+  }),
+  "shyfog:stripped_dark_oak_log": () => ({
     "texture": simpleTexture("/block/stripped_dark_oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_dark_oak_log", 1)
-  },
-  "shyfog:dark_oak_leaves": {
-    "texture": leavesTintedTexture("shyfog:dark_oak_leaves", "/block/dark_oak_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_dark_oak_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Dark Oak Log"
+    })
+  }),
+  "shyfog:dark_oak_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:dark_oak_leaves", "/block/dark_oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:dark_oak_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Dark Oak Leaves"
+    })
+  }),
+  "shyfog:dark_oak_planks": () => ({
     "texture": simpleTexture("/block/dark_oak_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:dark_oak_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:dark_oak_planks", 1),
+    "name": translatedName({
+      "en_US": "Dark Oak Planks"
+    })
+  }),
   // Acacia wood
-  "shyfog:acacia_log": {
+  "shyfog:acacia_log": () => ({
     "texture": simpleTexture("/block/acacia_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:acacia_log", 1)
-  },
-  "shyfog:stripped_acacia_log": {
+    "drop": simpleDrop("shyfog:acacia_log", 1),
+    "name": translatedName({
+      "en_US": "Acacia Log"
+    })
+  }),
+  "shyfog:stripped_acacia_log": () => ({
     "texture": simpleTexture("/block/stripped_acacia_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_acacia_log", 1)
-  },
-  "shyfog:acacia_leaves": {
-    "texture": leavesTintedTexture("shyfog:acacia_leaves", "/block/acacia_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_acacia_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Acacia Log"
+    })
+  }),
+  "shyfog:acacia_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:acacia_leaves", "/block/acacia_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:acacia_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Acacia Leaves"
+    })
+  }),
+  "shyfog:acacia_planks": () => ({
     "texture": simpleTexture("/block/acacia_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:acacia_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:acacia_planks", 1),
+    "name": translatedName({
+      "en_US": "Acacia Planks"
+    })
+  }),
   // Jungle wood
-  "shyfog:jungle_log": {
+  "shyfog:jungle_log": () => ({
     "texture": simpleTexture("/block/jungle_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:jungle_log", 1)
-  },
-  "shyfog:stripped_jungle_log": {
+    "drop": simpleDrop("shyfog:jungle_log", 1),
+    "name": translatedName({
+      "en_US": "Jungle Log"
+    })
+  }),
+  "shyfog:stripped_jungle_log": () => ({
     "texture": simpleTexture("/block/stripped_jungle_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_jungle_log", 1)
-  },
-  "shyfog:jungle_leaves": {
-    "texture": leavesTintedTexture("shyfog:jungle_leaves", "/block/jungle_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_jungle_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Jungle Log"
+    })
+  }),
+  "shyfog:jungle_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:jungle_leaves", "/block/jungle_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:jungle_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Jungle Leaves"
+    })
+  }),
+  "shyfog:jungle_planks": () => ({
     "texture": simpleTexture("/block/jungle_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:jungle_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:jungle_planks", 1),
+    "name": translatedName({
+      "en_US": "Jungle Planks"
+    })
+  }),
   // Mangrove wood
-  "shyfog:mangrove_log": {
+  "shyfog:mangrove_log": () => ({
     "texture": simpleTexture("/block/mangrove_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:mangrove_log", 1)
-  },
-  "shyfog:stripped_mangrove_log": {
+    "drop": simpleDrop("shyfog:mangrove_log", 1),
+    "name": translatedName({
+      "en_US": "Mangrove Log"
+    })
+  }),
+  "shyfog:stripped_mangrove_log": () => ({
     "texture": simpleTexture("/block/stripped_mangrove_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_mangrove_log", 1)
-  },
-  "shyfog:mangrove_leaves": {
-    "texture": leavesTintedTexture("shyfog:mangrove_leaves", "/block/mangrove_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_mangrove_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Mangrove Log"
+    })
+  }),
+  "shyfog:mangrove_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:mangrove_leaves", "/block/mangrove_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:mangrove_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Mangrove Leaves"
+    })
+  }),
+  "shyfog:mangrove_planks": () => ({
     "texture": simpleTexture("/block/mangrove_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:mangrove_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:mangrove_planks", 1),
+    "name": translatedName({
+      "en_US": "Mangrove Planks"
+    })
+  }),
   // Cherry wood
-  "shyfog:cherry_log": {
+  "shyfog:cherry_log": () => ({
     "texture": simpleTexture("/block/cherry_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:cherry_log", 1)
-  },
-  "shyfog:stripped_cherry_log": {
+    "drop": simpleDrop("shyfog:cherry_log", 1),
+    "name": translatedName({
+      "en_US": "Cherry Log"
+    })
+  }),
+  "shyfog:stripped_cherry_log": () => ({
     "texture": simpleTexture("/block/stripped_cherry_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_cherry_log", 1)
-  },
-  "shyfog:cherry_leaves": {
-    "texture": leavesTintedTexture("shyfog:cherry_leaves", "/block/cherry_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_cherry_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Cherry Log"
+    })
+  }),
+  "shyfog:cherry_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:cherry_leaves", "/block/cherry_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:cherry_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Cherry Leaves"
+    })
+  }),
+  "shyfog:cherry_planks": () => ({
     "texture": simpleTexture("/block/cherry_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:cherry_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:cherry_planks", 1),
+    "name": translatedName({
+      "en_US": "Cherry Planks"
+    })
+  }),
   // Pale oak wood
-  "shyfog:pale_oak_log": {
+  "shyfog:pale_oak_log": () => ({
     "texture": simpleTexture("/block/pale_oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:pale_oak_log", 1)
-  },
-  "shyfog:stripped_pale_oak_log": {
+    "drop": simpleDrop("shyfog:pale_oak_log", 1),
+    "name": translatedName({
+      "en_US": "Pale Oak Log"
+    })
+  }),
+  "shyfog:stripped_pale_oak_log": () => ({
     "texture": simpleTexture("/block/stripped_pale_oak_log.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:stripped_pale_oak_log", 1)
-  },
-  "shyfog:pale_oak_leaves": {
-    "texture": leavesTintedTexture("shyfog:pale_oak_leaves", "/block/pale_oak_leaves.png"),
+    "drop": simpleDrop("shyfog:stripped_pale_oak_log", 1),
+    "name": translatedName({
+      "en_US": "Stripped Pale Oak Log"
+    })
+  }),
+  "shyfog:pale_oak_leaves": ({ biome }) => ({
+    "texture": leavesTintedTexture("shyfog:pale_oak_leaves", "/block/pale_oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 0.2,
-    "drop": NO_DROP
-  },
-  "shyfog:pale_oak_planks": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Pale Oak Leaves"
+    })
+  }),
+  "shyfog:pale_oak_planks": () => ({
     "texture": simpleTexture("/block/pale_oak_planks.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
-    "drop": simpleDrop("shyfog:pale_oak_planks", 1)
-  },
+    "drop": simpleDrop("shyfog:pale_oak_planks", 1),
+    "name": translatedName({
+      "en_US": "Pale Oak Planks"
+    })
+  }),
   // Ores
-  "shyfog:coal_ore": {
+  "shyfog:coal_ore": () => ({
     "texture": simpleTexture("/block/coal_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:coal", 1)
-  },
-  "shyfog:deepslate_coal_ore": {
+    "drop": simpleDrop("shyfog:coal", 1),
+    "name": translatedName({
+      "en_US": "Coal Ore"
+    })
+  }),
+  "shyfog:deepslate_coal_ore": () => ({
     "texture": simpleTexture("/block/deepslate_coal_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": simpleDrop("shyfog:coal", 1)
-  },
-  "shyfog:copper_ore": {
+    "drop": simpleDrop("shyfog:coal", 1),
+    "name": translatedName({
+      "en_US": "Deepslate Coal Ore"
+    })
+  }),
+  "shyfog:copper_ore": () => ({
     "texture": simpleTexture("/block/copper_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": randomizedDrop("shyfog:raw_copper", 2, 5)
-  },
-  "shyfog:deepslate_copper_ore": {
+    "drop": randomizedDrop("shyfog:raw_copper", 2, 5),
+    "name": translatedName({
+      "en_US": "Copper Ore"
+    })
+  }),
+  "shyfog:deepslate_copper_ore": () => ({
     "texture": simpleTexture("/block/deepslate_copper_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": randomizedDrop("shyfog:raw_copper", 2, 5)
-  },
-  "shyfog:iron_ore": {
+    "drop": randomizedDrop("shyfog:raw_copper", 2, 5),
+    "name": translatedName({
+      "en_US": "Deepslate Copper Ore"
+    })
+  }),
+  "shyfog:iron_ore": () => ({
     "texture": simpleTexture("/block/iron_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:raw_iron", 1)
-  },
-  "shyfog:deepslate_iron_ore": {
+    "drop": simpleDrop("shyfog:raw_iron", 1),
+    "name": translatedName({
+      "en_US": "Iron Ore"
+    })
+  }),
+  "shyfog:deepslate_iron_ore": () => ({
     "texture": simpleTexture("/block/deepslate_iron_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": simpleDrop("shyfog:raw_iron", 1)
-  },
-  "shyfog:lapis_ore": {
+    "drop": simpleDrop("shyfog:raw_iron", 1),
+    "name": translatedName({
+      "en_US": "Deepslate Iron Ore"
+    })
+  }),
+  "shyfog:lapis_ore": () => ({
     "texture": simpleTexture("/block/lapis_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9)
-  },
-  "shyfog:deepslate_lapis_ore": {
+    "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9),
+    "name": translatedName({
+      "en_US": "Lapis Ore"
+    })
+  }),
+  "shyfog:deepslate_lapis_ore": () => ({
     "texture": simpleTexture("/block/deepslate_lapis_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9)
-  },
-  "shyfog:redstone_ore": {
+    "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9),
+    "name": translatedName({
+      "en_US": "Deepslate Lapis Ore"
+    })
+  }),
+  "shyfog:redstone_ore": () => ({
     "texture": simpleTexture("/block/redstone_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": randomizedDrop("shyfog:redstone", 4, 5)
-  },
-  "shyfog:deepslate_redstone_ore": {
+    "drop": randomizedDrop("shyfog:redstone", 4, 5),
+    "name": translatedName({
+      "en_US": "Redstone Ore"
+    })
+  }),
+  "shyfog:deepslate_redstone_ore": () => ({
     "texture": simpleTexture("/block/deepslate_redstone_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": randomizedDrop("shyfog:redstone", 4, 5)
-  },
-  "shyfog:gold_ore": {
+    "drop": randomizedDrop("shyfog:redstone", 4, 5),
+    "name": translatedName({
+      "en_US": "Deepslate Redstone Ore"
+    })
+  }),
+  "shyfog:gold_ore": () => ({
     "texture": simpleTexture("/block/gold_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:raw_gold", 1)
-  },
-  "shyfog:deepslate_gold_ore": {
+    "drop": simpleDrop("shyfog:raw_gold", 1),
+    "name": translatedName({
+      "en_US": "Gold Ore"
+    })
+  }),
+  "shyfog:deepslate_gold_ore": () => ({
     "texture": simpleTexture("/block/deepslate_gold_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": simpleDrop("shyfog:raw_gold", 1)
-  },
-  "shyfog:diamond_ore": {
+    "drop": simpleDrop("shyfog:raw_gold", 1),
+    "name": translatedName({
+      "en_US": "Deepslate Gold Ore"
+    })
+  }),
+  "shyfog:diamond_ore": () => ({
     "texture": simpleTexture("/block/diamond_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:diamond", 1)
-  },
-  "shyfog:deepslate_diamond_ore": {
+    "drop": simpleDrop("shyfog:diamond", 1),
+    "name": translatedName({
+      "en_US": "Diamond Ore"
+    })
+  }),
+  "shyfog:deepslate_diamond_ore": () => ({
     "texture": simpleTexture("/block/deepslate_diamond_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": simpleDrop("shyfog:diamond", 1)
-  },
-  "shyfog:emerald_ore": {
+    "drop": simpleDrop("shyfog:diamond", 1),
+    "name": translatedName({
+      "en_US": "Deepslate Diamond Ore"
+    })
+  }),
+  "shyfog:emerald_ore": () => ({
     "texture": simpleTexture("/block/emerald_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 3,
-    "drop": simpleDrop("shyfog:emerald", 1)
-  },
-  "shyfog:deepslate_emerald_ore": {
+    "drop": simpleDrop("shyfog:emerald", 1),
+    "name": translatedName({
+      "en_US": "Emerald Ore"
+    })
+  }),
+  "shyfog:deepslate_emerald_ore": () => ({
     "texture": simpleTexture("/block/deepslate_emerald_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "stackSize": 64,
     "placeable": true,
     "hardness": 4.5,
-    "drop": simpleDrop("shyfog:emerald", 1)
-  },
+    "drop": simpleDrop("shyfog:emerald", 1),
+    "name": translatedName({
+      "en_US": "Deepslate Emerald Ore"
+    })
+  }),
   // Materials
-  "shyfog:coal": {
+  "shyfog:coal": () => ({
     "texture": simpleTexture("/item/coal.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:raw_copper": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Coal"
+    })
+  }),
+  "shyfog:raw_copper": () => ({
     "texture": simpleTexture("/item/raw_copper.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:copper_ingot": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Raw Copper"
+    })
+  }),
+  "shyfog:copper_ingot": () => ({
     "texture": simpleTexture("/item/copper_ingot.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:raw_iron": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Copper Ingot"
+    })
+  }),
+  "shyfog:raw_iron": () => ({
     "texture": simpleTexture("/item/raw_iron.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:iron_ingot": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Raw Iron"
+    })
+  }),
+  "shyfog:iron_ingot": () => ({
     "texture": simpleTexture("/item/iron_ingot.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:lapis_lazuli": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Iron Ingot"
+    })
+  }),
+  "shyfog:lapis_lazuli": () => ({
     "texture": simpleTexture("/item/lapis_lazuli.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:redstone": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Lapis Lazuli"
+    })
+  }),
+  "shyfog:redstone": () => ({
     "texture": simpleTexture("/item/redstone.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:raw_gold": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Redstone"
+    })
+  }),
+  "shyfog:raw_gold": () => ({
     "texture": simpleTexture("/item/raw_gold.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:gold_ingot": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Raw Gold"
+    })
+  }),
+  "shyfog:gold_ingot": () => ({
     "texture": simpleTexture("/item/gold_ingot.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:diamond": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Gold Ingot"
+    })
+  }),
+  "shyfog:diamond": () => ({
     "texture": simpleTexture("/item/diamond.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:emerald": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Diamond"
+    })
+  }),
+  "shyfog:emerald": () => ({
     "texture": simpleTexture("/item/emerald.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Emerald"
+    })
+  }),
   // Other
-  "shyfog:charcoal": {
+  "shyfog:charcoal": () => ({
     "texture": simpleTexture("/item/charcoal.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  },
-  "shyfog:apple": {
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Charcoal"
+    })
+  }),
+  "shyfog:apple": () => ({
     "texture": simpleTexture("/item/apple.png"),
     "hitboxes": [],
     "stackSize": 64,
     "placeable": false,
     "hardness": 0,
-    "drop": NO_DROP
-  }
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Apple"
+    })
+  })
 };
 
 if (typeof game !== "undefined") {
