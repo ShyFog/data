@@ -230,13 +230,13 @@ var items = {
       "y": 1,
       "width": 1,
       "height": 1,
-      "file": grassTint("shyfog:tall_grass", "/block/tall_grass_top.png", biome)
+      "file": grassTint("shyfog:tall_grass_top", "/block/tall_grass_top.png", biome)
     }, {
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1,
-      "file": grassTint("shyfog:tall_grass", "/block/tall_grass_bottom.png", biome)
+      "file": grassTint("shyfog:tall_grass_bottom", "/block/tall_grass_bottom.png", biome)
     }],
     "hitboxes": SIMPLE_HITBOX,
     "stackSize": 64,
