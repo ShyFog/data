@@ -225,7 +225,7 @@ var items = {
     })
   }),
   "shyfog:tall_grass": ({ biome }) => ({
-    "texture": [{
+    "texture": (typeof grassTint === "undefined") ? [] : [{
       "x": 0,
       "y": 1,
       "width": 1,
