@@ -35,6 +35,9 @@ function simpleTexture(texture) {
 
 // Grass texture that changes color depending on the biome
 function grassTintedTexture(id, texture, biome) {
+  if (typeof grassTint === "undefined") {
+    return [];
+  }
   return [{
     "x": 0,
     "y": 0,
@@ -46,6 +49,9 @@ function grassTintedTexture(id, texture, biome) {
 
 // Leaves texture that changes color depending on the biome
 function leavesTintedTexture(id, texture, biome) {
+  if (typeof leavesTint === "undefined") {
+    return [];
+  }
   return [{
     "x": 0,
     "y": 0,
