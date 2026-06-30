@@ -97,6 +97,8 @@ var items = {
     "stackSize": 64,
     "placeable": true,
     "hardness": 1.5,
+    "correctTool": "#shyfog:pickaxe",
+    "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobblestone", 1),
     "name": translatedName({
       "en_US": "Stone"
@@ -108,6 +110,8 @@ var items = {
     "stackSize": 64,
     "placeable": true,
     "hardness": 2,
+    "correctTool": "#shyfog:pickaxe",
+    "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobblestone", 1),
     "name": translatedName({
       "en_US": "Cobblestone"
@@ -1106,6 +1110,20 @@ var items = {
     "name": translatedName({
       "en_US": "Apple"
     })
+  }),
+  "shyfog:wooden_pickaxe": () => ({
+    "texture": simpleTexture("/item/wooden_pickaxe.png"),
+    "hitboxes": [],
+    "stackSize": 1,
+    "placeable": false,
+    "hardness": 0,
+    "drop": NO_DROP,
+    "name": translatedName({
+      "en_US": "Wooden Pickaxe"
+    }),
+    "tags": ["#shyfog:pickaxe"],
+    "miningLevel": 1,
+    "miningSpeed": 2
   })
 };
 
