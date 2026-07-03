@@ -32,6 +32,7 @@ var guis = {
     "backgroundWidth": 176,
     "backgroundHeight": 166,
     "content": [
+      // Armor slots
       {
         "type": "image",
         "file": "/gui/sprites/container/slot/helmet.png",
@@ -116,6 +117,48 @@ var guis = {
         "slot": "weapon.offhand",
         "x": 76,
         "y": 61,
+        "width": 18,
+        "height": 18
+      },
+      // 2x2 craft slots
+      {
+        "type": "player_slot",
+        "slot": "craft.0",
+        "x": 97,
+        "y": 17,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.1",
+        "x": 115,
+        "y": 17,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.2",
+        "x": 97,
+        "y": 35,
+        "width": 18,
+        "height": 18
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.3",
+        "x": 115,
+        "y": 35,
+        "width": 18,
+        "height": 18
+      },
+      // Craft result slot
+      {
+        "type": "player_slot",
+        "slot": "craft.result",
+        "x": 153,
+        "y": 27,
         "width": 18,
         "height": 18
       },
