@@ -15,7 +15,7 @@ function defaulted(data) {
     "name": "",
     "tags": [],
     "miningLevel": 0,
-    "miningSpeed": 0
+    "miningSpeed": 1
   }, data);
 }
 
