@@ -236,7 +236,7 @@ var items = {
     })
   }),
   // Plants
-  "shyfog:short_grass": ({ biome }) => ({
+  "shyfog:short_grass": ({ biome }) => defaulted({
     "texture": grassTintedTexture("shyfog:short_grass", "/block/short_grass.png", biome),
     "hitboxes": SIMPLE_HITBOX,
     "placeable": true,
@@ -245,7 +245,7 @@ var items = {
       "en_US": "Short Grass"
     })
   }),
-  "shyfog:tall_grass": ({ biome }) => ({
+  "shyfog:tall_grass": ({ biome }) => defaulted({
     "texture": (typeof grassTint === "undefined") ? [] : [{
       "x": 0,
       "y": 1,
@@ -399,7 +399,7 @@ var items = {
       "en_US": "Stripped Oak Log"
     })
   }),
-  "shyfog:oak_leaves": ({ biome }) => ({
+  "shyfog:oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:oak_leaves", "/block/oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -443,7 +443,7 @@ var items = {
       "en_US": "Stripped Birch Log"
     })
   }),
-  "shyfog:birch_leaves": ({ biome }) => ({
+  "shyfog:birch_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:birch_leaves", "/block/birch_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -487,7 +487,7 @@ var items = {
       "en_US": "Stripped Spruce Log"
     })
   }),
-  "shyfog:spruce_leaves": ({ biome }) => ({
+  "shyfog:spruce_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:spruce_leaves", "/block/spruce_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -531,7 +531,7 @@ var items = {
       "en_US": "Stripped Dark Oak Log"
     })
   }),
-  "shyfog:dark_oak_leaves": ({ biome }) => ({
+  "shyfog:dark_oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:dark_oak_leaves", "/block/dark_oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -575,7 +575,7 @@ var items = {
       "en_US": "Stripped Acacia Log"
     })
   }),
-  "shyfog:acacia_leaves": ({ biome }) => ({
+  "shyfog:acacia_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:acacia_leaves", "/block/acacia_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -619,7 +619,7 @@ var items = {
       "en_US": "Stripped Jungle Log"
     })
   }),
-  "shyfog:jungle_leaves": ({ biome }) => ({
+  "shyfog:jungle_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:jungle_leaves", "/block/jungle_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -663,7 +663,7 @@ var items = {
       "en_US": "Stripped Mangrove Log"
     })
   }),
-  "shyfog:mangrove_leaves": ({ biome }) => ({
+  "shyfog:mangrove_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:mangrove_leaves", "/block/mangrove_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -707,7 +707,7 @@ var items = {
       "en_US": "Stripped Cherry Log"
     })
   }),
-  "shyfog:cherry_leaves": ({ biome }) => ({
+  "shyfog:cherry_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:cherry_leaves", "/block/cherry_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
@@ -751,7 +751,7 @@ var items = {
       "en_US": "Stripped Pale Oak Log"
     })
   }),
-  "shyfog:pale_oak_leaves": ({ biome }) => ({
+  "shyfog:pale_oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:pale_oak_leaves", "/block/pale_oak_leaves.png", biome),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
