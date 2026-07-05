@@ -376,6 +376,33 @@ var items = {
       "en_US": "Cornflower"
     })
   }),
+  "shyfog:sunflower": () => defaulted({
+    "texture": [{
+      "x": 0,
+      "y": 1,
+      "width": 1,
+      "height": 1,
+      "file": "/block/sunflower_top.png"
+    }, {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1,
+      "file": "/block/sunflower_bottom.png"
+    }, {
+      "x": 0,
+      "y": 1,
+      "width": 1,
+      "height": 1,
+      "file": "/block/sunflower_front.png"
+    }],
+    "hitboxes": SIMPLE_HITBOX,
+    "placeable": true,
+    "drop": simpleDrop("shyfog:sunflower", 1),
+    "name": translatedName({
+      "en_US": "Sunflower"
+    })
+  }),
   // Oak wood
   "shyfog:oak_log": () => defaulted({
     "texture": simpleTexture("/block/oak_log.png"),
