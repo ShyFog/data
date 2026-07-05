@@ -1097,7 +1097,7 @@ var items = {
   }),
   // Useful blocks
   "shyfog:crafting_table": () => defaulted({
-    "texture": simpleTexture("/block/crafting_table.png"),
+    "texture": simpleTexture("/block/crafting_table_front.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 2.5,
