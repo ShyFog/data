@@ -1106,7 +1106,16 @@ var items = {
     "drop": simpleDrop("shyfog:crafting_table", 1),
     "name": translatedName({
       "en_US": "Crafting Table"
-    })
+    }),
+    "onUse": ({ ws, sendPacket, PacketType }) => {
+      ws.currentGUI = {
+        "id": "shyfog:crafting_table",
+        "cursorItem": null
+      };
+      sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
+        "currentGUI": ws.currentGUI
+      });
+    }
   }),
   // Other items
   "shyfog:charcoal": () => defaulted({

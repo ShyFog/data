@@ -265,10 +265,10 @@ var guis = {
       {
         "type": "player_slot",
         "slot": "craft.result",
-        "x": 119,
-        "y": 30,
-        "width": 25,
-        "height": 25,
+        "x": 123,
+        "y": 34,
+        "width": 18,
+        "height": 18,
         "onUpdate": ({ ws, oldItem, newItem, finishCraft }) => {
           if (oldItem && !newItem) {
             finishCraft(ws, 3, 3);
