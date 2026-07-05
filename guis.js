@@ -127,7 +127,8 @@ var guis = {
         "x": 97,
         "y": 17,
         "width": 18,
-        "height": 18
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -135,7 +136,8 @@ var guis = {
         "x": 115,
         "y": 17,
         "width": 18,
-        "height": 18
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -143,7 +145,8 @@ var guis = {
         "x": 97,
         "y": 35,
         "width": 18,
-        "height": 18
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -151,7 +154,8 @@ var guis = {
         "x": 115,
         "y": 35,
         "width": 18,
-        "height": 18
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
       },
       // Craft result slot
       {
@@ -160,7 +164,12 @@ var guis = {
         "x": 153,
         "y": 27,
         "width": 18,
-        "height": 18
+        "height": 18,
+        "onUpdate": ({ ws, oldItem, newItem, finishCraft }) => {
+          if (oldItem && !newItem) {
+            finishCraft(ws, 2, 2);
+          }
+        }
       },
       ...addInventory(7, 83)
     ]

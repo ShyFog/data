@@ -386,7 +386,8 @@ var items = {
     "drop": simpleDrop("shyfog:oak_log", 1),
     "name": translatedName({
       "en_US": "Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:oak_logs"]
   }),
   "shyfog:stripped_oak_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_oak_log.png"),
@@ -397,7 +398,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_oak_log", 1),
     "name": translatedName({
       "en_US": "Stripped Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:oak_logs"]
   }),
   "shyfog:oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:oak_leaves", "/block/oak_leaves.png", biome),
@@ -407,7 +409,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Oak Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:oak_planks": () => defaulted({
     "texture": simpleTexture("/block/oak_planks.png"),
@@ -418,7 +421,8 @@ var items = {
     "drop": simpleDrop("shyfog:oak_planks", 1),
     "name": translatedName({
       "en_US": "Oak Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Birch wood
   "shyfog:birch_log": () => defaulted({
@@ -430,7 +434,8 @@ var items = {
     "drop": simpleDrop("shyfog:birch_log", 1),
     "name": translatedName({
       "en_US": "Birch Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:birch_logs"]
   }),
   "shyfog:stripped_birch_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_birch_log.png"),
@@ -441,7 +446,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_birch_log", 1),
     "name": translatedName({
       "en_US": "Stripped Birch Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:birch_logs"]
   }),
   "shyfog:birch_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:birch_leaves", "/block/birch_leaves.png", biome),
@@ -451,7 +457,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Birch Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:birch_planks": () => defaulted({
     "texture": simpleTexture("/block/birch_planks.png"),
@@ -462,7 +469,8 @@ var items = {
     "drop": simpleDrop("shyfog:birch_planks", 1),
     "name": translatedName({
       "en_US": "Birch Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Spruce wood
   "shyfog:spruce_log": () => defaulted({
@@ -474,7 +482,8 @@ var items = {
     "drop": simpleDrop("shyfog:spruce_log", 1),
     "name": translatedName({
       "en_US": "Spruce Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:spruce_logs"]
   }),
   "shyfog:stripped_spruce_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_spruce_log.png"),
@@ -485,7 +494,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_spruce_log", 1),
     "name": translatedName({
       "en_US": "Stripped Spruce Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:spruce_logs"]
   }),
   "shyfog:spruce_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:spruce_leaves", "/block/spruce_leaves.png", biome),
@@ -495,7 +505,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Spruce Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:spruce_planks": () => defaulted({
     "texture": simpleTexture("/block/spruce_planks.png"),
@@ -506,7 +517,8 @@ var items = {
     "drop": simpleDrop("shyfog:spruce_planks", 1),
     "name": translatedName({
       "en_US": "Spruce Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Dark oak wood
   "shyfog:dark_oak_log": () => defaulted({
@@ -518,7 +530,8 @@ var items = {
     "drop": simpleDrop("shyfog:dark_oak_log", 1),
     "name": translatedName({
       "en_US": "Dark Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:dark_oak_logs"]
   }),
   "shyfog:stripped_dark_oak_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_dark_oak_log.png"),
@@ -529,7 +542,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_dark_oak_log", 1),
     "name": translatedName({
       "en_US": "Stripped Dark Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:dark_oak_logs"]
   }),
   "shyfog:dark_oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:dark_oak_leaves", "/block/dark_oak_leaves.png", biome),
@@ -539,7 +553,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Dark Oak Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:dark_oak_planks": () => defaulted({
     "texture": simpleTexture("/block/dark_oak_planks.png"),
@@ -550,7 +565,8 @@ var items = {
     "drop": simpleDrop("shyfog:dark_oak_planks", 1),
     "name": translatedName({
       "en_US": "Dark Oak Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Acacia wood
   "shyfog:acacia_log": () => defaulted({
@@ -562,7 +578,8 @@ var items = {
     "drop": simpleDrop("shyfog:acacia_log", 1),
     "name": translatedName({
       "en_US": "Acacia Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:acacia_logs"]
   }),
   "shyfog:stripped_acacia_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_acacia_log.png"),
@@ -573,7 +590,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_acacia_log", 1),
     "name": translatedName({
       "en_US": "Stripped Acacia Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:acacia_logs"]
   }),
   "shyfog:acacia_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:acacia_leaves", "/block/acacia_leaves.png", biome),
@@ -583,7 +601,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Acacia Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:acacia_planks": () => defaulted({
     "texture": simpleTexture("/block/acacia_planks.png"),
@@ -594,7 +613,8 @@ var items = {
     "drop": simpleDrop("shyfog:acacia_planks", 1),
     "name": translatedName({
       "en_US": "Acacia Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Jungle wood
   "shyfog:jungle_log": () => defaulted({
@@ -606,7 +626,8 @@ var items = {
     "drop": simpleDrop("shyfog:jungle_log", 1),
     "name": translatedName({
       "en_US": "Jungle Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:jungle_logs"]
   }),
   "shyfog:stripped_jungle_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_jungle_log.png"),
@@ -617,7 +638,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_jungle_log", 1),
     "name": translatedName({
       "en_US": "Stripped Jungle Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:jungle_logs"]
   }),
   "shyfog:jungle_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:jungle_leaves", "/block/jungle_leaves.png", biome),
@@ -627,7 +649,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Jungle Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:jungle_planks": () => defaulted({
     "texture": simpleTexture("/block/jungle_planks.png"),
@@ -638,7 +661,8 @@ var items = {
     "drop": simpleDrop("shyfog:jungle_planks", 1),
     "name": translatedName({
       "en_US": "Jungle Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Mangrove wood
   "shyfog:mangrove_log": () => defaulted({
@@ -650,7 +674,8 @@ var items = {
     "drop": simpleDrop("shyfog:mangrove_log", 1),
     "name": translatedName({
       "en_US": "Mangrove Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:mangrove_logs"]
   }),
   "shyfog:stripped_mangrove_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_mangrove_log.png"),
@@ -661,7 +686,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_mangrove_log", 1),
     "name": translatedName({
       "en_US": "Stripped Mangrove Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:mangrove_logs"]
   }),
   "shyfog:mangrove_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:mangrove_leaves", "/block/mangrove_leaves.png", biome),
@@ -671,7 +697,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Mangrove Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:mangrove_planks": () => defaulted({
     "texture": simpleTexture("/block/mangrove_planks.png"),
@@ -682,7 +709,8 @@ var items = {
     "drop": simpleDrop("shyfog:mangrove_planks", 1),
     "name": translatedName({
       "en_US": "Mangrove Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Cherry wood
   "shyfog:cherry_log": () => defaulted({
@@ -694,7 +722,8 @@ var items = {
     "drop": simpleDrop("shyfog:cherry_log", 1),
     "name": translatedName({
       "en_US": "Cherry Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:cherry_logs"]
   }),
   "shyfog:stripped_cherry_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_cherry_log.png"),
@@ -705,7 +734,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_cherry_log", 1),
     "name": translatedName({
       "en_US": "Stripped Cherry Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:cherry_logs"]
   }),
   "shyfog:cherry_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:cherry_leaves", "/block/cherry_leaves.png", biome),
@@ -715,7 +745,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Cherry Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:cherry_planks": () => defaulted({
     "texture": simpleTexture("/block/cherry_planks.png"),
@@ -726,7 +757,8 @@ var items = {
     "drop": simpleDrop("shyfog:cherry_planks", 1),
     "name": translatedName({
       "en_US": "Cherry Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Pale oak wood
   "shyfog:pale_oak_log": () => defaulted({
@@ -738,7 +770,8 @@ var items = {
     "drop": simpleDrop("shyfog:pale_oak_log", 1),
     "name": translatedName({
       "en_US": "Pale Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:pale_oak_logs"]
   }),
   "shyfog:stripped_pale_oak_log": () => defaulted({
     "texture": simpleTexture("/block/stripped_pale_oak_log.png"),
@@ -749,7 +782,8 @@ var items = {
     "drop": simpleDrop("shyfog:stripped_pale_oak_log", 1),
     "name": translatedName({
       "en_US": "Stripped Pale Oak Log"
-    })
+    }),
+    "tags": ["#shyfog:logs", "#shyfog:logs_that_burn", "#shyfog:pale_oak_logs"]
   }),
   "shyfog:pale_oak_leaves": ({ biome }) => defaulted({
     "texture": leavesTintedTexture("shyfog:pale_oak_leaves", "/block/pale_oak_leaves.png", biome),
@@ -759,7 +793,8 @@ var items = {
     "drop": NO_DROP,
     "name": translatedName({
       "en_US": "Pale Oak Leaves"
-    })
+    }),
+    "tags": ["#shyfog:leaves"]
   }),
   "shyfog:pale_oak_planks": () => defaulted({
     "texture": simpleTexture("/block/pale_oak_planks.png"),
@@ -770,7 +805,8 @@ var items = {
     "drop": simpleDrop("shyfog:pale_oak_planks", 1),
     "name": translatedName({
       "en_US": "Pale Oak Planks"
-    })
+    }),
+    "tags": ["#shyfog:planks"]
   }),
   // Ores
   "shyfog:coal_ore": () => defaulted({
@@ -1043,6 +1079,12 @@ var items = {
     "texture": simpleTexture("/item/apple.png"),
     "name": translatedName({
       "en_US": "Apple"
+    })
+  }),
+  "shyfog:stick": () => defaulted({
+    "texture": simpleTexture("/item/stick.png"),
+    "name": translatedName({
+      "en_US": "Stick"
     })
   }),
   // Axes
