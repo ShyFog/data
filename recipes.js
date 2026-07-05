@@ -22,6 +22,19 @@ var recipes = {
       "count": 4,
       "id": "shyfog:stick"
     }
+  },
+  "shyfog:crafting_table": {
+    "type": "shyfog:crafting_shaped",
+    "key": {
+      "#": "#shyfog:planks"
+    },
+    "pattern": [
+      "##",
+      "##"
+    ],
+    "result": {
+      "id": "shyfog:crafting_table"
+    }
   }
 };
 

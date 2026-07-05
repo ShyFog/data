@@ -1095,7 +1095,20 @@ var items = {
       "en_US": "Emerald"
     })
   }),
-  // Other
+  // Useful blocks
+  "shyfog:crafting_table": () => defaulted({
+    "texture": simpleTexture("/block/crafting_table.png"),
+    "hitboxes": SIMPLE_SOLID_HITBOX,
+    "placeable": true,
+    "hardness": 2.5,
+    "correctTool": "#shyfog:axe",
+    "minMiningLevel": 0,
+    "drop": simpleDrop("shyfog:crafting_table", 1),
+    "name": translatedName({
+      "en_US": "Crafting Table"
+    })
+  }),
+  // Other items
   "shyfog:charcoal": () => defaulted({
     "texture": simpleTexture("/item/charcoal.png"),
     "name": translatedName({
