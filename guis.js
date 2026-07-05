@@ -173,6 +173,110 @@ var guis = {
       },
       ...addInventory(7, 83)
     ]
+  },
+  "shyfog:crafting_table": {
+    "background": "/gui/container/crafting_table.png",
+    "backgroundWidth": 176,
+    "backgroundHeight": 166,
+    "content": [
+      // 3x3 craft slots
+      {
+        "type": "player_slot",
+        "slot": "craft.0",
+        "x": 29,
+        "y": 16,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.1",
+        "x": 47,
+        "y": 16,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.2",
+        "x": 65,
+        "y": 16,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.3",
+        "x": 29,
+        "y": 34,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.4",
+        "x": 47,
+        "y": 34,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.5",
+        "x": 65,
+        "y": 34,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.6",
+        "x": 29,
+        "y": 52,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.7",
+        "x": 47,
+        "y": 52,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      {
+        "type": "player_slot",
+        "slot": "craft.8",
+        "x": 65,
+        "y": 52,
+        "width": 18,
+        "height": 18,
+        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+      },
+      // Craft result slot
+      {
+        "type": "player_slot",
+        "slot": "craft.result",
+        "x": 119,
+        "y": 30,
+        "width": 25,
+        "height": 25,
+        "onUpdate": ({ ws, oldItem, newItem, finishCraft }) => {
+          if (oldItem && !newItem) {
+            finishCraft(ws, 3, 3);
+          }
+        }
+      },
+      ...addInventory(7, 83)
+    ]
   }
 };
 
