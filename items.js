@@ -113,7 +113,7 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 1.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobblestone", 1),
     "name": translatedName({
@@ -125,19 +125,20 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 2,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobblestone", 1),
     "name": translatedName({
       "en_US": "Cobblestone"
-    })
+    }),
+    "tags": ["#shyfog:stone_tool_materials"]
   }),
   "shyfog:deepslate": () => defaulted({
     "texture": simpleTexture("/block/deepslate.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobbled_deepslate", 1),
     "name": translatedName({
@@ -149,12 +150,13 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:cobbled_deepslate", 1),
     "name": translatedName({
       "en_US": "Cobbled Deepslate"
-    })
+    }),
+    "tags": ["#shyfog:stone_tool_materials"]
   }),
   "shyfog:dirt": () => defaulted({
     "texture": simpleTexture("/block/dirt.png"),
@@ -165,7 +167,8 @@ var items = {
     "drop": simpleDrop("shyfog:dirt", 1),
     "name": translatedName({
       "en_US": "Dirt"
-    })
+    }),
+    "tags": ["#shyfog:dirt"]
   }),
   "shyfog:grass_block": () => defaulted({
     "texture": simpleTexture("/block/grass_block_side.png"),
@@ -176,7 +179,8 @@ var items = {
     "drop": simpleDrop("shyfog:dirt", 1),
     "name": translatedName({
       "en_US": "Grass Block"
-    })
+    }),
+    "tags": ["#shyfog:grass_blocks"]
   }),
   "shyfog:bedrock": () => defaulted({
     "texture": simpleTexture("/block/bedrock.png"),
@@ -204,7 +208,7 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 0.8,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:sandstone", 1),
     "name": translatedName({
@@ -216,7 +220,7 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 0.8,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:red_sandstone", 1),
     "name": translatedName({
@@ -228,7 +232,7 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 50,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 4,
     "drop": simpleDrop("shyfog:obsidian", 1),
     "name": translatedName({
@@ -449,7 +453,7 @@ var items = {
     "name": translatedName({
       "en_US": "Oak Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Birch wood
   "shyfog:birch_log": () => defaulted({
@@ -497,7 +501,7 @@ var items = {
     "name": translatedName({
       "en_US": "Birch Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Spruce wood
   "shyfog:spruce_log": () => defaulted({
@@ -545,7 +549,7 @@ var items = {
     "name": translatedName({
       "en_US": "Spruce Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Dark oak wood
   "shyfog:dark_oak_log": () => defaulted({
@@ -593,7 +597,7 @@ var items = {
     "name": translatedName({
       "en_US": "Dark Oak Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Acacia wood
   "shyfog:acacia_log": () => defaulted({
@@ -641,7 +645,7 @@ var items = {
     "name": translatedName({
       "en_US": "Acacia Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Jungle wood
   "shyfog:jungle_log": () => defaulted({
@@ -689,7 +693,7 @@ var items = {
     "name": translatedName({
       "en_US": "Jungle Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Mangrove wood
   "shyfog:mangrove_log": () => defaulted({
@@ -737,7 +741,7 @@ var items = {
     "name": translatedName({
       "en_US": "Mangrove Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Cherry wood
   "shyfog:cherry_log": () => defaulted({
@@ -785,7 +789,7 @@ var items = {
     "name": translatedName({
       "en_US": "Cherry Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Pale oak wood
   "shyfog:pale_oak_log": () => defaulted({
@@ -833,7 +837,7 @@ var items = {
     "name": translatedName({
       "en_US": "Pale Oak Planks"
     }),
-    "tags": ["#shyfog:planks"]
+    "tags": ["#shyfog:planks", "#shyfog:wooden_tool_materials"]
   }),
   // Ores
   "shyfog:coal_ore": () => defaulted({
@@ -841,192 +845,208 @@ var items = {
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:coal", 1),
     "name": translatedName({
       "en_US": "Coal Ore"
-    })
+    }),
+    "tags": ["#shyfog:coal_ores"]
   }),
   "shyfog:deepslate_coal_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_coal_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 1,
     "drop": simpleDrop("shyfog:coal", 1),
     "name": translatedName({
       "en_US": "Deepslate Coal Ore"
-    })
+    }),
+    "tags": ["#shyfog:coal_ores"]
   }),
   "shyfog:copper_ore": () => defaulted({
     "texture": simpleTexture("/block/copper_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": randomizedDrop("shyfog:raw_copper", 2, 5),
     "name": translatedName({
       "en_US": "Copper Ore"
-    })
+    }),
+    "tags": ["#shyfog:copper_ores"]
   }),
   "shyfog:deepslate_copper_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_copper_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": randomizedDrop("shyfog:raw_copper", 2, 5),
     "name": translatedName({
       "en_US": "Deepslate Copper Ore"
-    })
+    }),
+    "tags": ["#shyfog:copper_ores"]
   }),
   "shyfog:iron_ore": () => defaulted({
     "texture": simpleTexture("/block/iron_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": simpleDrop("shyfog:raw_iron", 1),
     "name": translatedName({
       "en_US": "Iron Ore"
-    })
+    }),
+    "tags": ["#shyfog:iron_ores"]
   }),
   "shyfog:deepslate_iron_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_iron_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": simpleDrop("shyfog:raw_iron", 1),
     "name": translatedName({
       "en_US": "Deepslate Iron Ore"
-    })
+    }),
+    "tags": ["#shyfog:iron_ores"]
   }),
   "shyfog:lapis_ore": () => defaulted({
     "texture": simpleTexture("/block/lapis_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9),
     "name": translatedName({
       "en_US": "Lapis Ore"
-    })
+    }),
+    "tags": ["#shyfog:lapis_ores"]
   }),
   "shyfog:deepslate_lapis_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_lapis_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 2,
     "drop": randomizedDrop("shyfog:lapis_lazuli", 4, 9),
     "name": translatedName({
       "en_US": "Deepslate Lapis Ore"
-    })
+    }),
+    "tags": ["#shyfog:lapis_ores"]
   }),
   "shyfog:redstone_ore": () => defaulted({
     "texture": simpleTexture("/block/redstone_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": randomizedDrop("shyfog:redstone", 4, 5),
     "name": translatedName({
       "en_US": "Redstone Ore"
-    })
+    }),
+    "tags": ["#shyfog:redstone_ores"]
   }),
   "shyfog:deepslate_redstone_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_redstone_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": randomizedDrop("shyfog:redstone", 4, 5),
     "name": translatedName({
       "en_US": "Deepslate Redstone Ore"
-    })
+    }),
+    "tags": ["#shyfog:redstone_ores"]
   }),
   "shyfog:gold_ore": () => defaulted({
     "texture": simpleTexture("/block/gold_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:raw_gold", 1),
     "name": translatedName({
       "en_US": "Gold Ore"
-    })
+    }),
+    "tags": ["#shyfog:gold_ores"]
   }),
   "shyfog:deepslate_gold_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_gold_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:raw_gold", 1),
     "name": translatedName({
       "en_US": "Deepslate Gold Ore"
-    })
+    }),
+    "tags": ["#shyfog:gold_ores"]
   }),
   "shyfog:diamond_ore": () => defaulted({
     "texture": simpleTexture("/block/diamond_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:diamond", 1),
     "name": translatedName({
       "en_US": "Diamond Ore"
-    })
+    }),
+    "tags": ["#shyfog:diamond_ores"]
   }),
   "shyfog:deepslate_diamond_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_diamond_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:diamond", 1),
     "name": translatedName({
       "en_US": "Deepslate Diamond Ore"
-    })
+    }),
+    "tags": ["#shyfog:diamond_ores"]
   }),
   "shyfog:emerald_ore": () => defaulted({
     "texture": simpleTexture("/block/emerald_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 3,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:emerald", 1),
     "name": translatedName({
       "en_US": "Emerald Ore"
-    })
+    }),
+    "tags": ["#shyfog:emerald_ores"]
   }),
   "shyfog:deepslate_emerald_ore": () => defaulted({
     "texture": simpleTexture("/block/deepslate_emerald_ore.png"),
     "hitboxes": SIMPLE_SOLID_HITBOX,
     "placeable": true,
     "hardness": 4.5,
-    "correctTool": "#shyfog:pickaxe",
+    "correctTool": "#shyfog:pickaxes",
     "minMiningLevel": 3,
     "drop": simpleDrop("shyfog:emerald", 1),
     "name": translatedName({
       "en_US": "Deepslate Emerald Ore"
-    })
+    }),
+    "tags": ["#shyfog:emerald_ores"]
   }),
   // Materials
   "shyfog:coal": () => defaulted({
@@ -1045,7 +1065,8 @@ var items = {
     "texture": simpleTexture("/item/copper_ingot.png"),
     "name": translatedName({
       "en_US": "Copper Ingot"
-    })
+    }),
+    "tags": ["#shyfog:copper_tool_materials"]
   }),
   "shyfog:raw_iron": () => defaulted({
     "texture": simpleTexture("/item/raw_iron.png"),
@@ -1057,7 +1078,8 @@ var items = {
     "texture": simpleTexture("/item/iron_ingot.png"),
     "name": translatedName({
       "en_US": "Iron Ingot"
-    })
+    }),
+    "tags": ["#shyfog:iron_tool_materials"]
   }),
   "shyfog:lapis_lazuli": () => defaulted({
     "texture": simpleTexture("/item/lapis_lazuli.png"),
@@ -1081,13 +1103,15 @@ var items = {
     "texture": simpleTexture("/item/gold_ingot.png"),
     "name": translatedName({
       "en_US": "Gold Ingot"
-    })
+    }),
+    "tags": ["#shyfog:gold_tool_materials"]
   }),
   "shyfog:diamond": () => defaulted({
     "texture": simpleTexture("/item/diamond.png"),
     "name": translatedName({
       "en_US": "Diamond"
-    })
+    }),
+    "tags": ["#shyfog:diamond_tool_materials"]
   }),
   "shyfog:emerald": () => defaulted({
     "texture": simpleTexture("/item/emerald.png"),
@@ -1214,7 +1238,7 @@ var items = {
     "name": translatedName({
       "en_US": "Wooden Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 1,
     "miningSpeed": 2
   }),
@@ -1224,7 +1248,7 @@ var items = {
     "name": translatedName({
       "en_US": "Stone Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 2,
     "miningSpeed": 4
   }),
@@ -1234,7 +1258,7 @@ var items = {
     "name": translatedName({
       "en_US": "Copper Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 2,
     "miningSpeed": 5
   }),
@@ -1244,7 +1268,7 @@ var items = {
     "name": translatedName({
       "en_US": "Golden Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 2,
     "miningSpeed": 12
   }),
@@ -1254,7 +1278,7 @@ var items = {
     "name": translatedName({
       "en_US": "Iron Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 3,
     "miningSpeed": 6
   }),
@@ -1264,7 +1288,7 @@ var items = {
     "name": translatedName({
       "en_US": "Diamond Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 4,
     "miningSpeed": 8
   }),
@@ -1274,7 +1298,7 @@ var items = {
     "name": translatedName({
       "en_US": "Netherite Pickaxe"
     }),
-    "tags": ["#shyfog:pickaxe"],
+    "tags": ["#shyfog:pickaxes"],
     "miningLevel": 5,
     "miningSpeed": 9
   }),
