@@ -52,7 +52,7 @@ function simpleTexture(texture) {
 
 // Grass texture that changes color depending on the biome
 function grassTintedTexture(id, texture, biome) {
-  if (typeof grassTint === "undefined") {
+  if (!ShyFog.Client) {
     return [];
   }
   return [{
@@ -60,13 +60,13 @@ function grassTintedTexture(id, texture, biome) {
     "y": 0,
     "width": 1,
     "height": 1,
-    "file": grassTint(id, texture, biome)
+    "file": ShyFog.Client.grassTint(id, texture, biome)
   }];
 }
 
 // Leaves texture that changes color depending on the biome
 function leavesTintedTexture(id, texture, biome) {
-  if (typeof leavesTint === "undefined") {
+  if (!ShyFog.Client) {
     return [];
   }
   return [{
@@ -74,7 +74,7 @@ function leavesTintedTexture(id, texture, biome) {
     "y": 0,
     "width": 1,
     "height": 1,
-    "file": leavesTint(id, texture, biome)
+    "file": ShyFog.Client.leavesTint(id, texture, biome)
   }];
 }
 
@@ -250,19 +250,19 @@ var items = {
     })
   }),
   "shyfog:tall_grass": ({ biome }) => defaulted({
-    "texture": (typeof grassTint === "undefined") ? [] : [{
+    "texture": ShyFog.Client ? [{
       "x": 0,
       "y": 1,
       "width": 1,
       "height": 1,
-      "file": grassTint("shyfog:tall_grass_top", "/block/tall_grass_top.png", biome)
+      "file": ShyFog.Client.grassTint("shyfog:tall_grass_top", "/block/tall_grass_top.png", biome)
     }, {
       "x": 0,
       "y": 0,
       "width": 1,
       "height": 1,
-      "file": grassTint("shyfog:tall_grass_bottom", "/block/tall_grass_bottom.png", biome)
-    }],
+      "file": ShyFog.Client.grassTint("shyfog:tall_grass_bottom", "/block/tall_grass_bottom.png", biome)
+    }] : [],
     "hitboxes": SIMPLE_HITBOX,
     "placeable": true,
     "drop": NO_DROP,
@@ -1375,9 +1375,9 @@ var items = {
   })
 };
 
-if (typeof game !== "undefined") {
-  game.items = items;
+if (ShyFog.Client) {
+  ShyFog.Client.items = items;
 }
-if (typeof module !== "undefined") {
-  module.exports = items;
+if (ShyFog.Server) {
+  ShyFog.Server.items = items;
 }

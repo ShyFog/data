@@ -392,9 +392,9 @@ var recipes = {
   }
 };
 
-if (typeof game !== "undefined") {
-  game.recipes = recipes;
+if (ShyFog.Client) {
+  ShyFog.Client.recipes = recipes;
 }
-if (typeof module !== "undefined") {
-  module.exports = recipes;
+if (ShyFog.Server) {
+  ShyFog.Server.recipes = recipes;
 }

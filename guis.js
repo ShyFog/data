@@ -280,9 +280,9 @@ var guis = {
   }
 };
 
-if (typeof game !== "undefined") {
-  game.guis = guis;
+if (ShyFog.Client) {
+  ShyFog.Client.guis = guis;
 }
-if (typeof module !== "undefined") {
-  module.exports = guis;
+if (ShyFog.Server) {
+  ShyFog.Server.guis = guis;
 }
