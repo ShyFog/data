@@ -83,20 +83,20 @@ const NO_DROP = () => {};
 
 // Just drop a specific amount of a specific item
 function simpleDrop(item, amount) {
-  return ({ world, ws, giveItem, sendPacket, PacketType, broadcastPacket }) => {
-    giveItem(world.players[ws.username], item, amount);
-    sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
-      "slots": world.players[ws.username].slots
+  return ({ ws }) => {
+    ShyFog.Server.giveItem(ShyFog.Server.players[ws.username], item, amount);
+    ShyFog.Server.sendPacket(ws, ShyFog.Server.PacketType.PLAYER_METADATA, ws.username, {
+      "slots": ShyFog.Server.players[ws.username].slots
     });
   };
 }
 
 // Drop a specific item in a random range as amount
 function randomizedDrop(item, minAmount, maxAmount) {
-  return ({ world, ws, giveItem, sendPacket, PacketType, broadcastPacket }) => {
-    giveItem(world.players[ws.username], item, minAmount + Math.floor(Math.random() *(maxAmount - minAmount + 1)));
-    sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
-      "slots": world.players[ws.username].slots
+  return ({ ws }) => {
+    ShyFog.Server.giveItem(ShyFog.Server.players[ws.username], item, minAmount + Math.floor(Math.random() *(maxAmount - minAmount + 1)));
+    ShyFog.Server.sendPacket(ws, ShyFog.Server.PacketType.PLAYER_METADATA, ws.username, {
+      "slots": ShyFog.Server.players[ws.username].slots
     });
   };
 }
@@ -1131,12 +1131,12 @@ var items = {
     "name": translatedName({
       "en_US": "Crafting Table"
     }),
-    "onUse": ({ ws, sendPacket, PacketType }) => {
+    "blockUse": ({ ws }) => {
       ws.currentGUI = {
         "id": "shyfog:crafting_table",
         "cursorItem": null
       };
-      sendPacket(ws, PacketType.PLAYER_METADATA, ws.username, {
+      ShyFog.Server.sendPacket(ws, ShyFog.Server.PacketType.PLAYER_METADATA, ws.username, {
         "currentGUI": ws.currentGUI
       });
     }

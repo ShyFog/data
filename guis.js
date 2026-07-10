@@ -128,7 +128,7 @@ var guis = {
         "y": 17,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -137,7 +137,7 @@ var guis = {
         "y": 17,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -146,7 +146,7 @@ var guis = {
         "y": 35,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 2, 2)
       },
       {
         "type": "player_slot",
@@ -155,7 +155,7 @@ var guis = {
         "y": 35,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 2, 2)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 2, 2)
       },
       // Craft result slot
       {
@@ -165,9 +165,9 @@ var guis = {
         "y": 27,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, oldItem, newItem, finishCraft }) => {
+        "update": ({ ws, oldItem, newItem }) => {
           if (oldItem && !newItem) {
-            finishCraft(ws, 2, 2);
+            ShyFog.Server.finishCraft(ws, 2, 2);
           }
         }
       },
@@ -187,7 +187,7 @@ var guis = {
         "y": 16,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -196,7 +196,7 @@ var guis = {
         "y": 16,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -205,7 +205,7 @@ var guis = {
         "y": 16,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -214,7 +214,7 @@ var guis = {
         "y": 34,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -223,7 +223,7 @@ var guis = {
         "y": 34,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -232,7 +232,7 @@ var guis = {
         "y": 34,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -241,7 +241,7 @@ var guis = {
         "y": 52,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -250,7 +250,7 @@ var guis = {
         "y": 52,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       {
         "type": "player_slot",
@@ -259,7 +259,7 @@ var guis = {
         "y": 52,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, updateCraft }) => updateCraft(ws, 3, 3)
+        "update": ({ ws }) => ShyFog.Server.updateCraft(ws, 3, 3)
       },
       // Craft result slot
       {
@@ -269,9 +269,9 @@ var guis = {
         "y": 34,
         "width": 18,
         "height": 18,
-        "onUpdate": ({ ws, oldItem, newItem, finishCraft }) => {
+        "update": ({ ws, oldItem, newItem }) => {
           if (oldItem && !newItem) {
-            finishCraft(ws, 3, 3);
+            ShyFog.Server.finishCraft(ws, 3, 3);
           }
         }
       },
